@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AgentFlow AI - plan, execute and review workflows with specialized agents.">
+  <title>AgentFlow AI | Workflow Automation</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="AgentFlow AI home"><span class="brand-mark">A</span> AgentFlow <span class="ai">AI</span></a>
+    <div class="top-status"><span class="pulse"></span> System operational</div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">MULTI-AGENT WORKFLOW AUTOMATION</p>
+      <h1>Turn complex work into<br><span>clear, actionable workflows.</span></h1>
+      <p class="subhead">Describe an outcome. AgentFlow plans the steps, executes a tracked workflow and reviews the result.</p>
+    </section>
+
+    <section class="workspace" aria-labelledby="create-title">
+      <div class="section-head">
+        <div><p class="eyebrow">WORKSPACE</p><h2 id="create-title">Create a workflow</h2></div>
+        <span class="tag">MVP · 3 specialized agents</span>
+      </div>
+      <form id="workflow-form">
+        <label for="task-input">What would you like to accomplish?</label>
+        <textarea id="task-input" maxlength="2000" minlength="5" required
+          placeholder="Example: Prepare a weekly project report and identify the next actions..."
+          aria-describedby="input-help"></textarea>
+        <div class="form-footer">
+          <span id="input-help">Be specific. Maximum 2,000 characters.</span>
+          <button id="run-button" type="submit"><span>Run workflow</span><span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+      <div class="examples">
+        <span>Try:</span>
+        <button class="example" type="button">Prepare a weekly project report</button>
+        <button class="example" type="button">Plan a product launch</button>
+        <button class="example" type="button">Draft a customer reply email</button>
+      </div>
+    </section>
+
+    <section id="result-section" class="result hidden" aria-live="polite">
+      <div class="section-head"><div><p class="eyebrow">EXECUTION</p><h2>Workflow results</h2></div><span id="result-status" class="status"></span></div>
+      <div id="agent-list" class="agent-grid"></div>
+      <div class="result-card">
+        <h3>Execution plan</h3><ol id="plan-list"></ol>
+      </div>
+      <div class="result-card">
+        <h3>Review summary</h3><p id="review-text"></p>
+      </div>
+    </section>
+
+    <section class="history">
+      <div class="section-head"><div><p class="eyebrow">ACTIVITY</p><h2>Recent workflows</h2></div><button id="refresh-button" class="quiet-button" type="button">Refresh</button></div>
+      <div id="history-list" class="history-list"><p class="muted">Loading workflow history…</p></div>
+    </section>
+    <footer><span>AgentFlow AI</span><span>Transparent workflows · Human oversight recommended</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
